@@ -1,0 +1,28 @@
+# Create-puTTY-Shortcut-in-Debian-Linux
+Bagaimana cara membuat shorcut puTTY pada debian(Linux)
+1. Cari tahu lokasi puTTY
+- which putty -> Berfungsi untuk mencari lokasi putty, biasanya output akan keluar seperti ini "/usr/bin/putty"
+2. Buat file dekstop entry
+- nano ~/.local/share/applications/putty-custom.desktop -> Berfunsi untuk konfigurasi shorcut nya
+- Paste kan kode ini:
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=PuTTY Debian
+Comment=Connect to my Debian Server
+Exec=/usr/bin/putty -ssh user@ip_address_debian 
+Icon=putty
+Terminal=false
+Categories=Network;RemoteAccess;
+
+Tips:
+-Ganti user@ip_address_debian dengan username dan ip address server kalian agar di klik langsung login.
+-Tetapi jika kalian mau puTTY menanyakan IP terlebih dahulu saat dibuka, cukup tuliskan Exec=/usr/bin/putty aja.
+-Jika kalian ingin mengganti icon, sesuaikan dengan path kalian, misal: Icon=/home/userkalian/Pictures/putty.png.
+
+3. Kasih izin eksekusi
+- chmod +x ~/.local/share/applications/putty-custom.desktop
+- Note: Berfungsi biar system mengenali file tsb sebagai aplikasi.
+
+4. Selesai, kalian bisa cek dengan menekan tombol super dan ketikan puTTY, maka shorcut beserta logo putty sudah terbuat.
